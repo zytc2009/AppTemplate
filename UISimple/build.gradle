@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+def config = rootProject.ext.android // 配置
+def librarys = rootProject.ext.dependencies // 依赖
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+
+    defaultConfig {
+        applicationId "com.ui.componnet.simple"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Butterknife requires Java 8.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation librarys.appcompat
+    implementation librarys.constraintlayout
+
+    implementation project(':ui_core')
+    implementation project(':ui_weigets')
+    implementation project(':utils')
+
+
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    testImplementation librarys.junit
+    androidTestImplementation librarys.androidx_junit
+    androidTestImplementation librarys.espresso_core
+}

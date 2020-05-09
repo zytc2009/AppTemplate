@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.utils" >
+
+    <application>
+
+        <provider
+            android:authorities="${applicationId}.arch.utils.provider"
+            android:name="com.arch.ArchUtils$ArchProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            android:multiprocess="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/arch_utils_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

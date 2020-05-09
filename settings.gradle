@@ -1,0 +1,2 @@
+include ':app',  ':UISimple', ':utils', ':ui_weigets', ':ui_core', ':utilsSimple'
+rootProject.name='Template'

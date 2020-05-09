@@ -1,1 +1,1 @@
-# AppTemplate
+AppTemplate
