@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.utils.simple">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SimpleActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    
+        <activity android:name=".ui.compat.CompatAppUtilsActivity"
+            android:label="@string/compat_app_utils"/>
+        <activity android:name=".ui.compat.CompatActivityUtilsActivity"
+            android:label="@string/compat_activity_utils"/>
+        <activity android:name=".ui.compat.CompatArrayUtilsActivity"
+            android:label="@string/compat_array_utils"/>
+        <activity android:name=".ui.compat.CompatDateUtilsActivity"
+            android:label="@string/compat_date_utils"/>
+        <activity android:name=".ui.compat.CompatDeviceUtilsActivity"
+            android:label="@string/compat_device_utils"/>
+        <activity android:name=".ui.compat.CompatEncodeUtilsActivity"
+            android:label="@string/compat_encode_utils"/>
+        <activity android:name=".ui.compat.CompatFileUtilsActivity"
+            android:label="@string/compat_file_utils"/>
+        <activity android:name=".ui.compat.CompatImageUtilsActivity"
+            android:label="@string/compat_image_utils"/>
+        <activity android:name=".ui.compat.CompatIntentUtilsActivity"
+            android:label="@string/compat_intent_utils"/>
+        <activity android:name=".ui.compat.CompatKeyBoardUtilsActivity"
+            android:label="@string/compat_key_board_utils"/>
+        <activity android:name=".ui.compat.CompatMapUtilsActivity"
+            android:label="@string/compat_map_utils"/>
+        <activity android:name=".ui.compat.CompatNetWorkUtilsActivity"
+            android:label="@string/compat_net_work_utils"/>
+        <activity android:name=".ui.compat.CompatRegexUtilsActivity"
+            android:label="@string/compat_regex_utils"/>
+        <activity android:name=".ui.compat.CompatRomUtilsActivity"
+            android:label="@string/compat_rom_utils"/>
+        <activity android:name=".ui.compat.CompatScreenUtilsActivity"
+            android:label="@string/compat_screen_utils"/>
+        <activity android:name=".ui.compat.CompatShellUtilsActivity"
+            android:label="@string/compat_shell_utils"/>
+        <activity android:name=".ui.compat.CompatSPUtilsActivity"
+            android:label="@string/compat_sp_utils"/>
+        <activity android:name=".ui.compat.CompatStringUtilsActivity"
+            android:label="@string/compat_string_utils"/>
+        <activity android:name=".ui.compat.CompatVibrateUtilsActivity"
+            android:label="@string/compat_vibrate_utils"/>
+        <activity android:name=".ui.compat.CompatBrightnessUtilsActivity"
+            android:label="@string/compat_brightness_utils"/>
+        <activity android:name=".ui.compat.CompatCacheUtilsActivity"
+            android:label="@string/compat_cache_utils"/>
+    </application>
+
+</manifest>

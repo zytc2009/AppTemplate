@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">utilsSimple</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+
+    <string name="compat_app_utils">AppUtils</string>
+    <string name="compat_activity_utils">ActivityUtils</string>
+    <string name="compat_array_utils">ArrayUtils</string>
+    <string name="compat_date_utils">DateUtils</string>
+    <string name="compat_device_utils">DeviceUtils</string>
+    <string name="compat_encode_utils">EncodeUtils</string>
+    <string name="compat_file_io_utils">FileIOUtils</string>
+    <string name="compat_file_utils">FileUtils</string>
+    <string name="compat_image_utils">ImageUtils</string>
+    <string name="compat_intent_utils">IntentUtils</string>
+    <string name="compat_key_board_utils">KeyBoardUtils</string>
+    <string name="compat_map_utils">MapUtils</string>
+    <string name="compat_net_work_utils">NetWorkUtils</string>
+    <string name="compat_regex_utils">RegexUtils</string>
+    <string name="compat_rom_utils">RomUtils</string>
+    <string name="compat_screen_utils">ScreenUtils</string>
+    <string name="compat_shell_utils">ShellUtils</string>
+    <string name="compat_sp_utils">SPUtils</string>
+    <string name="compat_string_utils">StringUtils</string>
+    <string name="compat_vibrate_utils">VibrateUtils</string>
+    <string name="compat_brightness_utils">BrightnessUtils</string>
+    <string name="compat_cache_utils">CacheUtils</string>
+
+</resources>

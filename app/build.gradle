@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+def config = rootProject.ext.android // 配置
+def librarys = rootProject.ext.dependencies // 依赖
+
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+    defaultConfig {
+        applicationId config.applicationid
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 启用分包
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //内容检查
+    lintOptions {
+        warningsAsErrors false
+        abortOnError false
+        ignoreWarnings true
+        checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        pickFirst 'lib/armeabi/libijkplayer.so'
+        pickFirst 'lib/armeabi/libijksdl.so'
+        pickFirst 'lib/armeabi/libijkffmpeg.so'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation librarys.appcompat
+    implementation librarys.constraintlayout
+    implementation librarys.activity
+    implementation librarys.core_common
+    implementation librarys.fragment
+    implementation librarys.mediarouter
+    implementation librarys.preference
+    implementation librarys.savedstate
+    implementation librarys.vectordrawable
+    implementation librarys.versionedparcelable
+    implementation librarys.annotation
+    implementation librarys.collection
+    implementation librarys.paging
+    implementation librarys.multidex
+    implementation librarys.recyclerview
+    implementation librarys.cardview
+
+
+
+    implementation librarys.cardview
+
+
+
+
+    testImplementation librarys.junit
+    androidTestImplementation librarys.androidx_junit
+    androidTestImplementation librarys.espresso_core
+}
