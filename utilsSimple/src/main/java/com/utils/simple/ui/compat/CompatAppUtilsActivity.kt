@@ -4,6 +4,7 @@ import android.widget.FrameLayout
 import androidx.core.widget.NestedScrollView
 import com.arch.utils.AppUtils
 import com.google.android.material.textview.MaterialTextView
+import com.utils.simple.Constants
 import com.utils.simple.R
 
 /**
@@ -42,6 +43,30 @@ class CompatAppUtilsActivity : BaseCompatActivity() {
                 .append("\n")
                 .append("AppVersionName : ")
                 .append(AppUtils.getAppVersionName(this))
+                .append("\n")
+                //UI 组件项目是否安装
+                .append("weight APP 是否已安装 : ")
+                .append(AppUtils.isAppInstalled(this,Constants.WEIGHT_PACKAGE_NAME))
+                .append("\n")
+                // 判断 是否可调试
+                .append("当前APP 是否可调式 : ")
+                .append(AppUtils.isAppDebug())
+                .append("\n")
+                // 是否已安装
+                .append("weight APP 是否已安装 : ")
+                .append(AppUtils.isAppDebug(Constants.WEIGHT_PACKAGE_NAME))
+                .append("\n")
+                // 活动
+                .append("应用是否在前台 : ")
+                .append(AppUtils.isAppForeground())
+                .append("\n")
+                .append("weight APP 是否在前台 : ")
+                .append(AppUtils.isAppForeground(Constants.WEIGHT_PACKAGE_NAME))
+                .append("\n")
+                // running
+                .append("weight APP 是否在运行 : ")
+                .append(AppUtils.isAppRunning(Constants.WEIGHT_PACKAGE_NAME))
+
 
 
         materialTextView.text = sb.toString()
