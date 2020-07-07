@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+    <declare-styleable name="CompatListView">
+        <attr name="layout_manager" format="enum">
+            <enum name="grid_layout" value="0"/>
+            <enum name="linear_layout" value="1"/>
+        </attr>
+    </declare-styleable>
+    
+</resources>

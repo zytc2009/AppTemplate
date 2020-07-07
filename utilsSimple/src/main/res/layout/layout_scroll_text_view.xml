@@ -6,42 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_scroll_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/color_525A62"
-        android:padding="10dp"
-        android:lineSpacingExtra="8dp"
-        tools:text="Android 是一个适用于移动设备的开源操作系统，也是由 Google 主导的对应开源项目。此网站和 Android 开源项目 (AOSP) 代码库可为您提供所需信息和源代码，供您创建定制的 Android 操作系统版本，将设备和配件移植到 Android 平台，同时确保您的设备符合兼容性要求，从而让 Android 生态系统维持良好稳健的运行环境，以便更好地服务于数百万用户。
-作为一个开源项目，Android 的目标是避免出现任何集中瓶颈（即没有任何行业参与者可一手限制或控制其他任何参与者的创新）。为此，Android 被打造成了一个适用于消费类产品的完整高品质操作系统，并配有可自定义并运用到几乎所有设备的源代码，以及所有用户均可使用的公开文档（英文网址：source.android.com；简体中文网址：source.android.google.cn）。
-正如您可以为 AOSP 贡献代码一样，您也可以为 AOSP 文档“添砖加瓦”，而且我们非常欢迎您提供宝贵意见！Android 的灵活性和不断变化的代码库意味着，此网站要想提供准确且与 Android 实现者息息相关的最新内容，离不开您的反馈。我们建议您查看更改日志，以详细了解 AOSP 的最新动态，并使用每个页面底部的网站反馈（或通过访问 g.co/androidsourceissue）来报告错误或提供建议。
-作为开放源代码系统，Android 可提供几乎无限可能的硬件和软件组合，供您开发连该操作系统的创作者都意想不到的设备。
-
-尽管如此，但为了让用户在使用其他 Android 设备时能够获得一致的体验，请在设计和自定义您的实现时考虑以下既定标准。
-
-查看架构中的 Android 平台开发基本原则，尤其是 Android 8.0 中引入的 HIDL 格式。
-
-确保设备符合 Android 兼容性定义文档（Android 的核心规范）的要求，即设备属于兼容的设备。
-
-参阅显示功能和设置指南，获取界面方面的帮助。
-
-利用所有可用的测试调试和改进您的 Android 设备。
-
-在开发面向用户的应用时，请先熟悉一下应用设计原则和 Material Design 技术。
-应用框架。应用框架最常被应用开发者使用。作为硬件开发者，您应该非常了解开发者 API，因为很多此类 API 都可以直接映射到底层 HAL 接口，并可提供与实现驱动程序相关的实用信息。
-Binder IPC。Binder 进程间通信 (IPC) 机制允许应用框架跨越进程边界并调用 Android 系统服务代码，这使得高级框架 API 能与 Android 系统服务进行交互。在应用框架级别，开发者无法看到此类通信的过程，但一切似乎都在“按部就班地运行”。
-系统服务。系统服务是专注于特定功能的模块化组件，例如窗口管理器、搜索服务或通知管理器。 应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android 包含两组服务：“系统”（诸如窗口管理器和通知管理器之类的服务）和“媒体”（与播放和录制媒体相关的服务）。
-硬件抽象层 (HAL)。HAL 可定义一个标准接口以供硬件供应商实现，这可让 Android 忽略较低级别的驱动程序实现。借助 HAL，您可以顺利实现相关功能，而不会影响或更改更高级别的系统。HAL 实现会被封装成模块，并会由 Android 系统适时地加载。有关详情，请参阅硬件抽象层 (HAL) 一文。
-Linux 内核。开发设备驱动程序与开发典型的 Linux 设备驱动程序类似。Android 使用的 Linux 内核版本包含几个特殊的补充功能，例如：Low Memory Killer（一种内存管理系统，可更主动地保留内存）、唤醒锁定（一种 PowerManager 系统服务）、Binder IPC 驱动程序以及对移动嵌入式平台来说非常重要的其他功能。这些补充功能主要用于增强系统功能，不会影响驱动程序开发。您可以使用任意版本的内核，只要它支持所需功能（如 Binder 驱动程序）即可。不过，我们建议您使用 Android 内核的最新版本。有关详情，请参阅编译内核一文。
-
-
-
-
-"
-
-        />
+    
+    <include layout="@layout/layout_text" />
 
 </androidx.core.widget.NestedScrollView>

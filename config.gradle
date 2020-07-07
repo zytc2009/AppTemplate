@@ -100,16 +100,12 @@ ext {
     android = [
             applicationid    : "com.app.template",
             compileSdkVersion: 29,
-            buildToolsVersion: "29.0.1",
+            buildToolsVersion: "29.0.2",
             minSdkVersion    : 17,
             targetSdkVersion : 26,
             versionCode      : 1,
             versionName      : "1.0.0",
             flavorDimensions : "default",
-            /**
-             *自动打包需要用到的版本号，提测分支创建时初始化好，除非发布小版本，否则勿改
-             */
-            autoBuildVer     : "6.19.1"
     ]
 
 

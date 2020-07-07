@@ -189,6 +189,9 @@ public final class AppUtils {
     private static String getForegroundProcessName() {
         ActivityManager am =
                 (ActivityManager) ArchUtils.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        if (am == null){
+            return "";
+        }
         List<ActivityManager.RunningAppProcessInfo> pInfo = am.getRunningAppProcesses();
         if (pInfo != null && pInfo.size() > 0) {
             for (ActivityManager.RunningAppProcessInfo aInfo : pInfo) {
