@@ -5,6 +5,12 @@
 
     <data>
         <import type="com.app.template.mvvm.MainDataBean"/>
+        <import type="com.app.template.mvvm.MainViewModel"/>
+
+        <variable
+            name="viewModel"
+            type="com.app.template.mvvm.MainViewModel"
+            />
 
         <variable
         name="mainData"
@@ -56,6 +62,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:img="@{mainData.image}"
+            android:onClick="@{viewModel.onClick}"
             tools:ignore="MissingConstraints" />
 
         <androidx.recyclerview.widget.RecyclerView

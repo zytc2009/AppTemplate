@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.TextView;
 
 import com.app.template.databinding.ActivityMainBinding;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * 使用databinding
  */
-public class MainActivity extends AppCompatActivity implements Handler.Callback {
+public class MainActivity extends AppCompatActivity implements Handler.Callback{
 
     private MainViewModel mainViewModel;
     ActivityMainBinding activityMainBinding;
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback 
             }
         });
 
+        //关联VM
+        activityMainBinding.setViewModel(mainViewModel);
 
         adapter  = new CommonRecyclerViewAdapter(this);
 

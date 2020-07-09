@@ -1,6 +1,7 @@
 package com.app.template.mvvm;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import androidx.lifecycle.ViewModel;
  * java代码实现MVVM
  * @author whb
  */
-public class MainViewModel extends ViewModel {
+public class MainViewModel extends ViewModel implements View.OnClickListener{
     //添加变量，我们主要是观察这个数据变化，来刷新页面
     private MutableLiveData<MainDataBean> mainData;
     private MutableLiveData<List<MainListItem>> mainList;
@@ -50,5 +51,10 @@ public class MainViewModel extends ViewModel {
     public static void setImage(ImageView view, String url){
         //显示图片
         Log.d("MainDataBean", "setImage() url="+url);
+    }
+
+
+    public void onClick(View view){
+        Log.d("MainDataBean", "onClick() ");
     }
 }
