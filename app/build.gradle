@@ -24,6 +24,10 @@ android {
         }
     }
 
+    dataBinding{
+        enabled true
+    }
+
     //内容检查
     lintOptions {
         warningsAsErrors false
@@ -68,7 +72,7 @@ dependencies {
     implementation librarys.recyclerview
     implementation librarys.cardview
 
-
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     implementation librarys.cardview
 
