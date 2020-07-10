@@ -3,6 +3,7 @@ package com.app.template;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.app.template.databinding.ActivityMainBinding;
@@ -66,15 +68,28 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
         activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.recyclerView.setAdapter(adapter);
 
+
+        activityMainBinding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
+            @Override
+            public void onInflate(ViewStub stub, View inflated) {
+//                ViewDataBinding dataBinding = DataBindingUtil.bind(inflated);
+//                dataBinding.setVariable(BR.mainData, mainViewModel.getMainData().getValue());
+            }
+        });
+
         //加载数据
         mainViewModel.loadData();
-//        //5秒后改变局部数据试试
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
+        //5秒后改变局部数据试试
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 //                mainViewModel.getMainData().getValue().setDesc("局部刷新");
-//            }
-//        }, 5000);
+                if(!activityMainBinding.viewStub.isInflated()) {
+                    activityMainBinding.viewStub.getViewStub().inflate();
+                }
+                activityMainBinding.checkbox.setChecked(true);
+            }
+        }, 5000);
 
     }
 
@@ -83,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
     public boolean handleMessage(@NonNull Message msg) {
 //        mainViewModel.getMainData().getValue().setDesc("局部刷新");
 //        activityMainBinding.setTime("20200709");
+
         return false;
     }
 

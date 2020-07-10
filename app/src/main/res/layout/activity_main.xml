@@ -59,18 +59,50 @@
             tools:text="测试shijian" />
 
         <ImageView
+            android:id="@+id/iv_imageView"
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:img="@{mainData.image}"
-            android:onClick="@{viewModel.onClick}"
+            android:onClick="@{(theView) -> viewModel.onClick(theView, mainData.image)}"
             tools:ignore="MissingConstraints" />
+
+        <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="@={mainData.rememberMe}"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time"
+        />
+
+
+        <include
+            android:id="@+id/main_include_view"
+            layout="@layout/main_stub_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mainData="@{mainData}"
+            android:background="@color/mr_cast_progressbar_progress_and_thumb_dark"
+            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"
+            app:layout_constraintStart_toEndOf="@+id/iv_imageView"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ViewStub
+            android:id="@+id/view_stub"
+            android:layout="@layout/main_stub_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mainData="@{mainData}"
+            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/main_include_view"
+            tools:ignore="MissingConstraints" />
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/mr_cast_progressbar_progress_and_thumb_dark"
-            app:layout_constraintTop_toBottomOf="@+id/tv_time"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox"
             app:layout_constraintBottom_toBottomOf="parent"
             />
 

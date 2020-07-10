@@ -2,11 +2,14 @@ package com.app.template.mvvm;
 
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.ImageView;
 
 import java.util.List;
 
 import androidx.databinding.BindingAdapter;
+import androidx.databinding.ViewDataBinding;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -47,14 +50,14 @@ public class MainViewModel extends ViewModel implements View.OnClickListener{
         super.onCleared();
     }
 
-    @BindingAdapter("bind:img")
-    public static void setImage(ImageView view, String url){
-        //显示图片
-        Log.d("MainDataBean", "setImage() url="+url);
-    }
-
 
     public void onClick(View view){
         Log.d("MainDataBean", "onClick() ");
     }
+
+    //自定义处理
+    public void onClick(View view, String data){
+        Log.d("MainDataBean", "onClick() data="+data);
+    }
+
 }
