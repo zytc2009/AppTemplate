@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ import java.util.List;
 /**
  * 使用databinding
  */
-public class MainActivity extends AppCompatActivity implements Handler.Callback{
+public class MainActivity extends AppCompatActivity implements Handler.Callback,View.OnClickListener{
 
     private MainViewModel mainViewModel;
     ActivityMainBinding activityMainBinding;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback{
         handler = new Handler(this);
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        //观察主页面数据
         mainViewModel.getMainData().observe(this, new Observer<MainDataBean>() {
             @Override
             public void onChanged(MainDataBean mainDataBean) {
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback{
                 activityMainBinding.setMainData(mainDataBean);
             }
         });
-
+        //观察列表变化
         mainViewModel.getMainList().observe(this, new Observer<List<MainListItem>>() {
             @Override
             public void onChanged(List<MainListItem> mainListItems) {
@@ -56,14 +58,15 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback{
             }
         });
 
-        //关联VM
+        //关联VM，这样才能关联点击事件
         activityMainBinding.setViewModel(mainViewModel);
 
+        //recyclerView处理
         adapter  = new CommonRecyclerViewAdapter(this);
-
         activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.recyclerView.setAdapter(adapter);
 
+        //加载数据
         mainViewModel.loadData();
 //        //5秒后改变局部数据试试
 //        handler.postDelayed(new Runnable() {
@@ -81,5 +84,10 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback{
 //        mainViewModel.getMainData().getValue().setDesc("局部刷新");
 //        activityMainBinding.setTime("20200709");
         return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Log.d("MainDataBean", "onClick() 22222");
     }
 }
