@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -49,6 +50,13 @@ public class MainViewModel extends ViewModel implements View.OnClickListener{
     protected void onCleared() {
         super.onCleared();
     }
+
+//    @BindingAdapter("android:text")
+//    public static void setText(TextView view, String text){
+//        //将替换所有使用binding的页面的文本展示
+//        view.setText("恭喜您中了一个亿现金！");
+//    }
+
 
 
     public void onClick(View view){
