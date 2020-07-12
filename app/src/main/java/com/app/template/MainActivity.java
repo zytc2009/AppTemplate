@@ -3,7 +3,6 @@ package com.app.template;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,16 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
-import android.widget.TextView;
 
 import com.app.template.databinding.ActivityMainBinding;
 import com.app.template.mvvm.CommonRecyclerViewAdapter;
 import com.app.template.mvvm.MainDataBean;
 import com.app.template.mvvm.MainListItem;
 import com.app.template.mvvm.MainViewModel;
+import com.http.test.TestModel;
 
 import java.util.List;
 
@@ -91,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
             }
         }, 5000);
 
+        new TestModel(this).getData();
+
     }
 
 
@@ -104,6 +104,9 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
 
     @Override
     public void onClick(View v) {
-        Log.d("MainDataBean", "onClick() 22222");
+//        Log.d("MainDataBean", "onClick() 22222");
+
+
     }
+
 }

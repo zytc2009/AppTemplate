@@ -73,10 +73,11 @@ dependencies {
     implementation librarys.cardview
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation librarys.workruntime
 
     implementation librarys.cardview
 
-
+    implementation project(':http')
 
 
     testImplementation librarys.junit

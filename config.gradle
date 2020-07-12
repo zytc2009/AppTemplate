@@ -17,6 +17,7 @@ ext {
             savedstate          : 'androidx.savedstate:savedstate:1.0.0',
             vectordrawable      : 'androidx.vectordrawable:vectordrawable:1.1.0',
             work                : 'androidx.work:work:2.2.0',
+            workruntime         : 'android.arch.work:work-runtime:2.0.0',
             versionedparcelable : 'androidx.versionedparcelable:versionedparcelable:1.1.0',
             transition          : 'androidx.transition:transition:1.1.0',
             room                : 'androidx.room:room:2.2.0-rc01',

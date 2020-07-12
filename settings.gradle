@@ -1,2 +1,2 @@
-include ':app',  ':UISimple', ':utils', ':ui_weigets', ':ui_core', ':utilsSimple'
+include ':app',  ':UISimple', ':utils', ':ui_weigets', ':ui_core', ':utilsSimple', 'http'
 rootProject.name='Template'
