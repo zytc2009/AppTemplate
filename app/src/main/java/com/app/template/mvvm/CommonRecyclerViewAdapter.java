@@ -1,18 +1,19 @@
 package com.app.template.mvvm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.app.template.BR;
 import com.app.template.R;
+import com.app.template.widget.RecyclerView;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<CommonViewHolder> {
      private Context context;
@@ -43,7 +44,17 @@ public class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<CommonVie
 
     @Override
     public void onBindViewHolder(@NonNull CommonViewHolder holder, int position) {
+        Log.d("RecyclerView", "whb onBindViewHolder()  position="+position);
         holder.setData(dataList.get(position));
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CommonViewHolder holder, int position, @NonNull List<Object> payloads) {
+        if(payloads != null && payloads.size()>0){
+
+        }else {
+            onBindViewHolder(holder, position);
+        }
     }
 
     @Override

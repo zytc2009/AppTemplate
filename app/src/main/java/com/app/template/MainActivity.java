@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 
@@ -18,6 +18,7 @@ import com.app.template.mvvm.CommonRecyclerViewAdapter;
 import com.app.template.mvvm.MainDataBean;
 import com.app.template.mvvm.MainListItem;
 import com.app.template.mvvm.MainViewModel;
+import com.app.template.widget.LinearLayoutManager;
 import com.http.test.TestModel;
 
 import java.util.List;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
         activityMainBinding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
             @Override
             public void onInflate(ViewStub stub, View inflated) {
+                //如果没有在布局中设置数据传递，就需要执行这两行了。如果设置了，这段代码可以废弃
 //                ViewDataBinding dataBinding = DataBindingUtil.bind(inflated);
 //                dataBinding.setVariable(BR.mainData, mainViewModel.getMainData().getValue());
             }
@@ -81,31 +83,37 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                 //测试属性刷新
 //                mainViewModel.getMainData().getValue().setDesc("局部刷新");
-                if(!activityMainBinding.viewStub.isInflated()) {
-                    activityMainBinding.viewStub.getViewStub().inflate();
-                }
-                activityMainBinding.checkbox.setChecked(true);
+
+                 //测试viewStub
+//                if(!activityMainBinding.viewStub.isInflated()) {
+//                    activityMainBinding.viewStub.getViewStub().inflate();
+//                }
+
+                //测试属性
+//                activityMainBinding.checkbox.setChecked(true);
+
+                //测试局部刷新
+                Log.d("RecyclerView", "whb notifyItemChanged()  ");
+                adapter.notifyItemChanged(3);
+
             }
         }, 5000);
 
-        new TestModel(this).getData();
-
+        //测试Retrofit
+//        new TestModel(this).getData();
     }
 
 
     @Override
     public boolean handleMessage(@NonNull Message msg) {
-//        mainViewModel.getMainData().getValue().setDesc("局部刷新");
-//        activityMainBinding.setTime("20200709");
-
         return false;
     }
 
     @Override
     public void onClick(View v) {
 //        Log.d("MainDataBean", "onClick() 22222");
-
 
     }
 

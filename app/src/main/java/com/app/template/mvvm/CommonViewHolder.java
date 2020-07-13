@@ -2,9 +2,10 @@ package com.app.template.mvvm;
 
 import android.view.View;
 
+import com.app.template.widget.RecyclerView;
+
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
-import androidx.recyclerview.widget.RecyclerView;
 
 class CommonViewHolder<T> extends RecyclerView.ViewHolder {
     private ViewDataBinding viewDataBinding;
