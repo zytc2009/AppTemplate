@@ -15,8 +15,10 @@ import com.app.template.mvvm.CommonRecyclerViewAdapter
 import com.app.template.widget.LinearLayoutManager
 
 /**
- * Created by whb
+ * Kotlin实现MVVM
  *
+ * Created by whb
+ * JAVA版本见MainActivity
  */
 class HomeActivity :AppCompatActivity(){
     private var adapter: HomeRecyclerViewAdapter? = null
