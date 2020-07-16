@@ -6,26 +6,35 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
+import android.webkit.MimeTypeMap;
 
 import com.app.template.databinding.ActivityMainBinding;
 import com.app.template.mvvm.CommonRecyclerViewAdapter;
 import com.app.template.mvvm.MainDataBean;
 import com.app.template.mvvm.MainListItem;
+import com.app.template.mvvm.MainRecyclerViewAdapter;
 import com.app.template.mvvm.MainViewModel;
+import com.app.template.kt_ui.home.HomeActivity;
 import com.app.template.widget.LinearLayoutManager;
-import com.http.test.TestModel;
 
 import java.util.List;
 
 
 /**
+ * MVVM实例
  * 使用databinding
+ * kotlin版本见：HomeActivity
  */
 public class MainActivity extends AppCompatActivity implements Handler.Callback,View.OnClickListener{
 
@@ -63,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
         activityMainBinding.setViewModel(mainViewModel);
 
         //recyclerView处理
-        adapter  = new CommonRecyclerViewAdapter(this);
+        adapter  = new MainRecyclerViewAdapter(this);
         activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.recyclerView.setAdapter(adapter);
 
@@ -95,8 +104,12 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
 //                activityMainBinding.checkbox.setChecked(true);
 
                 //测试局部刷新
-                Log.d("RecyclerView", "whb notifyItemChanged()  ");
-                adapter.notifyItemChanged(3);
+//                Log.d("RecyclerView", "whb notifyItemChanged()  ");
+//                adapter.notifyItemChanged(3);
+
+//                getAllPdf();
+
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
             }
         }, 5000);
@@ -113,8 +126,24 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
 
     @Override
     public void onClick(View v) {
-//        Log.d("MainDataBean", "onClick() 22222");
 
+    }
+
+    private void getAllPdf() {
+        ContentResolver cr = getContentResolver();
+        Uri uri = MediaStore.Files.getContentUri("external");
+        String[] projection = null;
+        String sortOrder = null; // unordered
+        // only pdf
+        String selectionMimeType = MediaStore.Files.FileColumns.MIME_TYPE + "=?";
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension("pdf");
+        String[] selectionArgsPdf = new String[]{mimeType};
+        Cursor cursor = cr.query(uri, projection, selectionMimeType, selectionArgsPdf, sortOrder);
+        while (cursor.moveToNext()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            String filePath = cursor.getString(column_index);//所有pdf文件路径
+            Log.d("MainActivity", "getAllPdf() filePath=" + filePath);
+        }
     }
 
 }

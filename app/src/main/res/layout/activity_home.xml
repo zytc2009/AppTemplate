@@ -4,23 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.app.template.mvvm.MainDataBean"/>
-        <import type="com.app.template.mvvm.MainViewModel"/>
+        <import type="com.app.template.kt_ui.model.MainViewModel"/>
+        <import type="com.app.template.kt_ui.model.HomeDataBean"/>
 
         <variable
-            name="viewModel"
-            type="com.app.template.mvvm.MainViewModel"
-            />
-
-        <variable
-        name="mainData"
-        type="com.app.template.mvvm.MainDataBean"
+        name="viewModel"
+        type="MainViewModel"
         />
 
         <variable
-            name="time"
-            type="String"
+            name="mainData"
+            type="HomeDataBean"
             />
+
     </data>
 
 
@@ -46,17 +42,18 @@
             android:text="@{mainData.desc}"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:textSize="20sp"
-            tools:text="测试内容" />
+            tools:text="测试内容"
+            tools:ignore="MissingConstraints" />
 
 
         <TextView
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{time}"
             app:layout_constraintTop_toBottomOf="@+id/tv_desc"
             tools:textSize="20sp"
-            tools:text="测试shijian" />
+            tools:text="测试shijian"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/iv_imageView"
@@ -71,29 +68,29 @@
         android:layout_height="wrap_content"
         android:checked="@={mainData.rememberMe}"
         app:layout_constraintTop_toBottomOf="@+id/tv_time"
-        />
-
-
-        <include
-            android:id="@+id/main_include_view"
-            layout="@layout/main_stub_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:mainData="@{mainData}"
-            android:background="@color/mr_cast_progressbar_progress_and_thumb_dark"
-            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"
-            app:layout_constraintStart_toEndOf="@+id/iv_imageView"
-            tools:layout_editor_absoluteY="0dp" />
-
-        <ViewStub
-            android:id="@+id/view_stub"
-            android:layout="@layout/main_stub_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:mainData="@{mainData}"
-            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/main_include_view"
             tools:ignore="MissingConstraints" />
+
+
+<!--        <include-->
+<!--            android:id="@+id/main_include_view"-->
+<!--            layout="@layout/main_stub_view"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:mainData="@{homeData.mainData}"-->
+<!--            android:background="@color/mr_cast_progressbar_progress_and_thumb_dark"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/iv_imageView"-->
+<!--            tools:layout_editor_absoluteY="0dp" />-->
+
+<!--        <ViewStub-->
+<!--            android:id="@+id/view_stub"-->
+<!--            android:layout="@layout/main_stub_view"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:mainData="@{homeData.mainData}"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/iv_imageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/main_include_view"-->
+<!--            tools:ignore="MissingConstraints" />-->
 
 
 

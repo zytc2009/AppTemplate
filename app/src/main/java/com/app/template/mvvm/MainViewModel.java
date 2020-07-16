@@ -57,7 +57,11 @@ public class MainViewModel extends ViewModel implements View.OnClickListener{
 //        view.setText("恭喜您中了一个亿现金！");
 //    }
 
-
+//    @BindingAdapter("bind:img")
+//    public static void setImage(ImageView view, String url){
+//        //显示图片
+//        Log.d("MainDataBean", "setImage() url="+url);
+//    }
 
     public void onClick(View view){
         Log.d("MainDataBean", "onClick() ");

@@ -15,10 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-public class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<CommonViewHolder> {
-     private Context context;
-     private LayoutInflater layoutInflater;
-     private List<T> dataList;
+public abstract class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<CommonViewHolder> {
+     protected Context context;
+    protected LayoutInflater layoutInflater;
+    protected List<T> dataList;
 
      public CommonRecyclerViewAdapter(Context context){
          this.context = context;
@@ -33,28 +33,19 @@ public class CommonRecyclerViewAdapter<T> extends RecyclerView.Adapter<CommonVie
      */
     @NonNull
     @Override
-    public CommonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //临时测试用的，实际项目中一般是抽象方法
-        ViewDataBinding dataBinding = DataBindingUtil.inflate(layoutInflater, R.layout.main_list_view,  parent, false);
-        CommonViewHolder holder = new CommonViewHolder(dataBinding.getRoot(), BR.itemData);
-        //用于holder刷新
-        holder.setViewDataBinding(dataBinding);
-        return holder;
-    }
+    public abstract CommonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
 
     @Override
     public void onBindViewHolder(@NonNull CommonViewHolder holder, int position) {
-        Log.d("RecyclerView", "whb onBindViewHolder()  position="+position);
+        Log.d("RecyclerView", "whb onBindViewHolder()  position="+position +",data="+dataList.get(position));
         holder.setData(dataList.get(position));
     }
 
     @Override
     public void onBindViewHolder(@NonNull CommonViewHolder holder, int position, @NonNull List<Object> payloads) {
-        if(payloads != null && payloads.size()>0){
 
-        }else {
             onBindViewHolder(holder, position);
-        }
+
     }
 
     @Override

@@ -7,9 +7,9 @@ import com.app.template.widget.RecyclerView;
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
 
-class CommonViewHolder<T> extends RecyclerView.ViewHolder {
-    private ViewDataBinding viewDataBinding;
-    private int BR_id;
+public class CommonViewHolder<T> extends RecyclerView.ViewHolder {
+    protected ViewDataBinding viewDataBinding;
+    protected int BR_id;
 
     public CommonViewHolder(@NonNull View itemView, int BR_id) {
         super(itemView);

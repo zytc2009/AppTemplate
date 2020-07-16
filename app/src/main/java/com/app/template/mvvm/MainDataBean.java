@@ -45,12 +45,6 @@ public class MainDataBean extends BaseObservable {
         notifyPropertyChanged(BR.image);
     }
 
-    @BindingAdapter("bind:img")
-    public static void setImage(ImageView view, String url){
-          //显示图片
-        Log.d("MainDataBean", "setImage() url="+url);
-    }
-
 
     @Bindable
     public boolean isRememberMe() {
