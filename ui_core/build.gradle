@@ -29,6 +29,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+
     implementation librarys.appcompat
     testImplementation librarys.junit
 

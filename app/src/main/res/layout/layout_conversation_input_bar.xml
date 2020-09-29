@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/input_bar_conversation_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/edit_text_conversation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="10"
+            android:minHeight="34dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/button_sticker_conversation"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Send"
+        android:layout_marginTop="5dp" />
+
+
+</LinearLayout>

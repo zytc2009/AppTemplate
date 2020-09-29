@@ -2,6 +2,7 @@ package com.ui.core.base;
 
 import android.os.Bundle;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.ui.core.UICoreLog;
 import com.ui.core.presenter.BasePresenter;
 import com.ui.core.presenter.DefaultPresenter;
@@ -27,7 +28,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ImmersionBar.with(this).statusBarDarkFont(false).fitsSystemWindows(true).keyboardEnable(true).init();
         setContentView(getLayoutResId());
 
         this.mPresenter = createPresenter();

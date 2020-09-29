@@ -83,8 +83,13 @@ dependencies {
     implementation librarys.cardview
 
     implementation project(':http')
+    implementation project(':ui_core')
+    implementation project(':ui_weigets')
+    implementation project(':utils')
     implementation 'io.reactivex:rxjava:1.1.9'
     implementation 'io.reactivex:rxandroid:1.2.1'
+
+    api "com.github.bumptech.glide:glide:4.9.0"// 图片加载
 
     testImplementation librarys.junit
     androidTestImplementation librarys.androidx_junit

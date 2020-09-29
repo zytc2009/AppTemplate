@@ -28,15 +28,21 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ConversationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".kt_ui.home.HomeActivity"
+        <activity android:name=".kt_ui.home.HomeActivity">
+        </activity>
+
+        <activity android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"/>
     </application>
