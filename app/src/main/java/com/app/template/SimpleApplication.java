@@ -1,7 +1,8 @@
-package com.ui.componnet.simple;
+package com.app.template;
 
 import android.app.Application;
 
+import com.app.template.utils.MemoryLeakUtil;
 import com.arch.ArchUtils;
 
 /**
@@ -11,13 +12,10 @@ import com.arch.ArchUtils;
  */
 public class SimpleApplication extends Application {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
-
+        MemoryLeakUtil.init(this);
         ArchUtils.initialization(this);
-
-
     }
 }

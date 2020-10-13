@@ -1,4 +1,4 @@
-package com.ui.componnet.simple;
+package com.app.template;
 
 import android.util.Log;
 

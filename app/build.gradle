@@ -52,6 +52,10 @@ android {
         pickFirst 'lib/armeabi/libijksdl.so'
         pickFirst 'lib/armeabi/libijkffmpeg.so'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 apply plugin: 'kotlin-android'
@@ -88,6 +92,7 @@ dependencies {
     implementation project(':utils')
     implementation 'io.reactivex:rxjava:1.1.9'
     implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'com.kwai.koom:java-oom:1.0.7'
 
     api "com.github.bumptech.glide:glide:4.9.0"// 图片加载
 

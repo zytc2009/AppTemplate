@@ -1,4 +1,4 @@
 include ':baselib'
 include ':storage'
-include ':app',  ':UISimple', ':utils', ':ui_weigets', ':ui_core', ':utilsSimple', 'http'
+include ':app',  ':utils', ':ui_weigets', ':ui_core', ':utilsSimple', 'http'
 rootProject.name='Template'
