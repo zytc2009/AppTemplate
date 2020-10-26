@@ -29,7 +29,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':baselib')
+    implementation project(path: ':baselib')
     implementation librarys.appcompat
     testImplementation librarys.junit
 

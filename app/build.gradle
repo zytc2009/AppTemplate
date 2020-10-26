@@ -86,10 +86,7 @@ dependencies {
 
     implementation librarys.cardview
 
-    implementation project(':http')
-    implementation project(':ui_core')
-    implementation project(':ui_weigets')
-    implementation project(':utils')
+    api project(':SDKDepend')
     implementation 'io.reactivex:rxjava:1.1.9'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'com.kwai.koom:java-oom:1.0.7'

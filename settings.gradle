@@ -1,4 +1,17 @@
+include ':app',   ':ui_weigets', ':utilsSimple'
+include ':SDKDepend'
+//sdk
 include ':baselib'
+project(':baselib').projectDir = new File('sdk/baselib')
 include ':storage'
-include ':app',  ':utils', ':ui_weigets', ':ui_core', ':utilsSimple', 'http'
+project(':storage').projectDir = new File('sdk/storage')
+include ':http'
+project(':http').projectDir = new File('sdk/http')
+include ':ui_core'
+project(':ui_core').projectDir = new File('sdk/ui_core')
+include ':utils'
+project(':utils').projectDir = new File('sdk/utils')
+include ':ui_widgets'
+project(':ui_widgets').projectDir = new File('sdk/ui_widgets')
+
 rootProject.name='Template'
