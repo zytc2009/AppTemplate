@@ -27,7 +27,9 @@ android {
 }
 
 dependencies {
-    testImplementation rootProject.ext.dependencies["junit"]
+    testImplementation rootProject.ext.deps["junit"]
+    androidTestImplementation rootProject.ext.deps["androidx-junit"]
+    androidTestImplementation rootProject.ext.deps["espresso-core"]
 
     api project(":ui_core")
     api project(':storage')
