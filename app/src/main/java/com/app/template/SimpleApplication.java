@@ -2,7 +2,7 @@ package com.app.template;
 
 import android.app.Application;
 
-import com.app.template.utils.MemoryLeakUtil;
+import com.zy.main.utils.MemoryLeakUtil;
 import com.arch.ArchUtils;
 
 /**

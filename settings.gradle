@@ -1,5 +1,7 @@
-include ':app',   ':ui_weigets', ':utilsSimple'
-include ':SDKDepend'
+include ':app'
+include ':Main', ':utilsSimple'
+include ':SdkDepend'
+
 //sdk
 include ':baselib'
 project(':baselib').projectDir = new File('sdk/baselib')
