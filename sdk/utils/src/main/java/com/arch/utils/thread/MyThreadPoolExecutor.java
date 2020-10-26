@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.arch.UtilsLog;
 import com.arch.constants.LogTag;
-import com.arch.utils.ThreadUtils;
 
 import java.util.ArrayList;
 import java.util.List;
