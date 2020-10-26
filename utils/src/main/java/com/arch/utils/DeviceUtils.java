@@ -14,7 +14,10 @@ import android.text.TextUtils;
 
 import com.arch.UtilsLog;
 
+import java.io.File;
+import java.io.FileFilter;
 import java.net.NetworkInterface;
+import java.util.regex.Pattern;
 
 import androidx.annotation.NonNull;
 
@@ -192,6 +195,51 @@ public final class DeviceUtils {
         return resultData;
     }
 
+    private static int numOfCpuCores = -1;
+
+    /**
+     * Gets the number of cores available in this device, across all processors.
+     * Requires: Ability to peruse the filesystem at "/sys/devices/system/cpu"
+     *
+     * @return The number of cores, or 1 if failed to get result
+     */
+    public static int getNumCores() {
+        if (numOfCpuCores > 0) {
+            return numOfCpuCores;
+        }
+
+        //Private Class to display only CPU devices in the directory listing
+        class CpuFilter implements FileFilter {
+            @Override
+            public boolean accept(File pathname) {
+                //Check if filename is "cpu", followed by a single digit number
+                return Pattern.matches("cpu[0-9]+", pathname.getName());
+            }
+        }
+
+        try {
+            //Get directory containing CPU info
+            File dir = new File("/sys/devices/system/cpu/");
+            //Filter to only list the devices we care about
+            File[] files = dir.listFiles(new CpuFilter());
+            //Return the number of cores (virtual CPU devices)
+            if (files != null && files.length > 0) {
+                numOfCpuCores = files.length;
+            }
+        } catch (Throwable ignored) {
+        }
+
+        if (numOfCpuCores <= 0) {
+            numOfCpuCores = Runtime.getRuntime().availableProcessors();
+        }
+
+        if (numOfCpuCores <= 0) {
+            //Default to return 1 core
+            numOfCpuCores = 1;
+        }
+
+        return numOfCpuCores;
+    }
 
 
 }
