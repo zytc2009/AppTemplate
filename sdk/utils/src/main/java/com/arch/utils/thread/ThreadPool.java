@@ -8,6 +8,7 @@ import android.os.Process;
 
 import com.arch.UtilsLog;
 import com.arch.constants.LogTag;
+import com.arch.utils.HandlerUtils;
 import com.arch.utils.Preconditions;
 import com.zy.baselib.lifecycle.SafeRunnable;
 
@@ -16,22 +17,23 @@ import java.util.concurrent.ThreadPoolExecutor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-@SuppressWarnings({"unused", "UnusedReturnValue"})
+/**
+ * 线程池管理，对外调用类
+ */
 public class ThreadPool {
     private static final int UI_TASK_CHECK_INTERVAL = 10_000; // 10 seconds
 
     private static Handler uiHandler;
     private static ITaskExecutor uiTaskExecutor;
 
-    private static HandlerThread sHandlerThread;
-
-    private static final Object mWorkObj = new Object();
-
     private static TaskScheduler taskScheduler;
 
     private static boolean started = false;
 
-    public static void startup() {
+    /**
+     * 初始化
+     */
+    public static void init() {
         Preconditions.checkMainThread();
         if (started) {
             UtilsLog.e("%s already started", LogTag.TAG_THREAD);
@@ -49,8 +51,6 @@ public class ThreadPool {
         schedulerThread.start();
         taskScheduler = new TaskScheduler(schedulerThread.getLooper(), "ThreadPool");
         taskScheduler.setCheckInterval(UI_TASK_CHECK_INTERVAL);
-
-
     }
 
     public static void triggerTaskSchedulerCheck() {
@@ -228,21 +228,8 @@ public class ThreadPool {
     }
 
 
-    public static HandlerThread startHandlerThread(@NonNull String name) {
-        return startHandlerThread(name, Process.THREAD_PRIORITY_DEFAULT);
-    }
-
-
-    public static HandlerThread startHandlerThread(@NonNull String name, int priority) {
-        // TODO track the thread
-        HandlerThread thread = new HandlerThread(name, priority);
-        thread.start();
-        return thread;
-    }
-
     static void dumpState(@NonNull StringBuilder sb) {
-//        HandlerUtils.dumpHandler(mainHandler, "MainHandler");
-//        HandlerUtils.dumpHandler(uiHandler, "UiHandler");
+        HandlerUtils.dumpHandler(uiHandler, "UiHandler");
         taskScheduler.dump();
     }
 

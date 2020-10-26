@@ -3,6 +3,8 @@ package com.arch;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import com.arch.utils.thread.ThreadPool;
+
 import androidx.core.content.FileProvider;
 
 /**
@@ -11,7 +13,6 @@ import androidx.core.content.FileProvider;
  * desc : 工具库 辅助类
  */
 public final class ArchUtils {
-
 
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
@@ -22,6 +23,8 @@ public final class ArchUtils {
             return;
         }
         mContext = context.getApplicationContext();
+
+        ThreadPool.init();
     }
 
     public static Context getContext(){
