@@ -88,31 +88,6 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
 
         //加载数据
         mainViewModel.loadData();
-        //5秒后改变局部数据试试
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                 //测试属性刷新
-//                mainViewModel.getMainData().getValue().setDesc("局部刷新");
-
-                 //测试viewStub
-//                if(!activityMainBinding.viewStub.isInflated()) {
-//                    activityMainBinding.viewStub.getViewStub().inflate();
-//                }
-
-                //测试属性
-//                activityMainBinding.checkbox.setChecked(true);
-
-                //测试局部刷新
-//                Log.d("RecyclerView", "whb notifyItemChanged()  ");
-//                adapter.notifyItemChanged(3);
-
-//                getAllPdf();
-
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
-
-            }
-        }, 5000);
 
         //测试Retrofit
 //        new TestModel(this).getData();
@@ -128,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
     public void onClick(View v) {
 
     }
+
+
 
     private void getAllPdf() {
         ContentResolver cr = getContentResolver();

@@ -14,11 +14,6 @@ import com.zy.main.utils.InputMethodUtils;
 import com.ui.core.base.BaseActivity;
 import androidx.annotation.Nullable;
 
-/**
- * created by zhaoyuntao
- * on 2020/5/25
- * description:
- */
 
 public class ConversationActivity extends BaseActivity<MessagePresenter> implements View.OnClickListener {
 
@@ -181,10 +176,8 @@ public class ConversationActivity extends BaseActivity<MessagePresenter> impleme
         super.onPause();
     }
 
-
     @Override
     public Context getContext() {
-        return null;
+        return getBaseContext();
     }
-
 }

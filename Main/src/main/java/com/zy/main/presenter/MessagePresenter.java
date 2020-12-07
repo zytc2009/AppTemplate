@@ -10,13 +10,6 @@ import com.ui.core.presenter.BasePresenter;
 
 import androidx.annotation.RequiresApi;
 
-
-
-/**
- * created by zhaoyuntao
- * on 2020/5/25
- * description:
- */
 public class MessagePresenter extends BasePresenter {
     private boolean inputMethodOpen;
     //需要存sp
