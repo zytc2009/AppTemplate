@@ -2,10 +2,10 @@ package com.zy.main.mvvm;
 
 import android.view.View;
 
-import com.zy.main.widget.RecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class CommonViewHolder<T> extends RecyclerView.ViewHolder {
     protected ViewDataBinding viewDataBinding;

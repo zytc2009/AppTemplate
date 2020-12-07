@@ -3,11 +3,7 @@
     package="com.zy.main">
 
     <application>
-
-        <activity android:name="com.zy.main.kt_ui.home.HomeActivity">
-        </activity>
-
-        <activity android:name="com.zy.main.MainActivity"
+        <activity android:name=".kt_ui.home.HomeActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"/>
     </application>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+@Deprecated
 public class MainActivityNoDataBinding extends AppCompatActivity {
 
     private MainViewModel mainViewModel;

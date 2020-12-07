@@ -1,13 +1,6 @@
 package com.zy.main;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,16 +18,21 @@ import com.zy.main.mvvm.MainDataBean;
 import com.zy.main.mvvm.MainListItem;
 import com.zy.main.mvvm.MainRecyclerViewAdapter;
 import com.zy.main.mvvm.MainViewModel;
-import com.zy.main.kt_ui.home.HomeActivity;
-import com.zy.main.widget.LinearLayoutManager;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 
 /**
  * MVVM实例
  * 使用databinding
  * kotlin版本见：HomeActivity
+ * @deprecated 以后只使用kotlin编程了
  */
 public class MainActivity extends AppCompatActivity implements Handler.Callback,View.OnClickListener{
 
@@ -73,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback,
 
         //recyclerView处理
         adapter  = new MainRecyclerViewAdapter(this);
-        activityMainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.recyclerView.setAdapter(adapter);
 
 
