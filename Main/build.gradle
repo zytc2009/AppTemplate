@@ -1,5 +1,7 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 def config = rootProject.ext.android // 配置
@@ -45,7 +47,6 @@ dependencies {
     implementation librarys.mediarouter
     implementation librarys.preference
     implementation librarys.savedstate
-    implementation librarys.vectordrawable
     implementation librarys.versionedparcelable
     implementation librarys.annotation
     implementation librarys.collection
@@ -65,8 +66,21 @@ dependencies {
 
     implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation librarys.coroutines_android
+    implementation librarys.coroutines_core
+
+    implementation librarys.kotlinx_io
+    implementation librarys.kotlinx_io_jvm
 }
 repositories {
     mavenCentral()
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

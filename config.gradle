@@ -39,7 +39,6 @@ ext {
             navigation          : 'androidx.navigation:navigation:2.1.0',
             preference          : 'androidx.preference:preference:1.1.0',
             savedstate          : 'androidx.savedstate:savedstate:1.0.0',
-            vectordrawable      : 'androidx.vectordrawable:vectordrawable:1.1.0',
             work                : 'androidx.work:work:2.2.0',
             workruntime         : 'android.arch.work:work-runtime:2.0.0',
             versionedparcelable : 'androidx.versionedparcelable:versionedparcelable:1.1.0',
@@ -76,19 +75,23 @@ ext {
 
             jacksoncore         : 'com.fasterxml.jackson.core:jackson-core:2.7.3',
             jacksondatabind     : 'com.fasterxml.jackson.core:jackson-databind:2.7.3',
-            facebookrebound     : 'com.facebook.rebound:rebound:0.3.8',
+
             ijkplayerjava       : 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8',
             ijkplayerarmv       : 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8',
             umenganalytics      : 'com.umeng.analytics:analytics:latest.integration',
 
-            qiyukf              : 'com.qiyukf.unicorn:unicorn:4.12.1',
             shortcutbadger      : 'me.leolin:ShortcutBadger:1.1.21@aar',
             bugly               : 'com.tencent.bugly:crashreport:latest.release',
             greendao            : 'org.greenrobot:greendao:3.2.2',
 
             debug_leakcanary    : 'com.squareup.leakcanary:leakcanary-android:1.6.3',
-            release_leakcanary  : 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3',
-            leakcanary_fragment : 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3',
+
+            coroutines_android : 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2',
+            coroutines_core : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2",
+
+            kotlinx_io : 'org.jetbrains.kotlinx:kotlinx-io:0.1.1',
+            kotlinx_io_jvm : "org.jetbrains.kotlinx:kotlinx-io-jvm:0.1.1",
+
             logan               : 'com.dianping.android.sdk:logan:1.2.1'
     ]
 

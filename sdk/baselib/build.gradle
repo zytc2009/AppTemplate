@@ -1,4 +1,9 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
 def config = rootProject.ext.android // 配置
 def librarys = rootProject.ext.dependencies // 依赖
 android {
@@ -28,4 +33,18 @@ dependencies {
     androidTestImplementation librarys.androidx_junit
     androidTestImplementation librarys.espresso_core
     implementation librarys.gson
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation librarys.coroutines_android
+    implementation librarys.coroutines_core
+
+    implementation librarys.kotlinx_io
+    implementation librarys.kotlinx_io_jvm
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
