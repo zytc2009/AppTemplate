@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
@@ -59,6 +59,8 @@ dependencies {
     implementation 'com.kwai.koom:java-oom:1.0.7'
 
     api "com.github.bumptech.glide:glide:4.9.0"// 图片加载
+
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
 
     testImplementation librarys.junit
     androidTestImplementation librarys.androidx_junit

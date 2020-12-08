@@ -25,8 +25,6 @@ class HomeActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main_nobind)
 
-//        supportFragmentManager.beginTransaction().add(R.id.activity_main,  CardSelectorFragment()).commit()
-
         var homeBinding: ActivityHomeBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
         val mainViewModel: MainViewModel = ViewModelProvider(this).get(MainViewModel::class.java);

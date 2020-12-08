@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 class MainViewModel: ViewModel() {
     val mainData: MutableLiveData<HomeDataBean> = MutableLiveData()
     val mainList: MutableLiveData<List<HomeListItem>> = MutableLiveData()
+
     val model: MainModel = MainModel()
 
     fun loadData(){

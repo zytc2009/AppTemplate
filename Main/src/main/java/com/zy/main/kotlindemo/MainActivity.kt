@@ -1,23 +1,20 @@
 package com.zy.kotlindemo
 
-import android.app.ActivityManager
-import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.zy.kotlindemo.coroutine.LaunchCoroutine
+import com.zy.main.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 //扩展
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_nobind)
         //直接访问元素
-        textView.text = "Whb"
-        LaunchCoroutine().displayDashboard(textView);
+        tv_title.text = "Whb"
+        LaunchCoroutine().displayDashboard(tv_title);
     }
 
     fun onText1Clicked(view: View){
